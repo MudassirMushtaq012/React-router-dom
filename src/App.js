@@ -6,7 +6,8 @@ import Contact from './Pages/Contact';
 import Homee from './Pages/Homee';
 import AppNavbar from './Components/Navbar';
 import PageNotFound from './PageNotFound/PageNotFound'
-
+import { useParams } from 'react-router-dom';
+import User from './Pages/User';
 
 function App() {
   
@@ -14,17 +15,19 @@ function App() {
     
     <>
 
-    <div>
+    {/* <div>
       <AppNavbar/>
-    </div>
+    </div> */}
 
     <div>
       <Routes>
 
+        <Route path='/:userName' element={<AppNavbar><User/></AppNavbar>} />
+        <Route path='/home' element={<AppNavbar><Homee/></AppNavbar>} />
+        <Route path='/' element={<AppNavbar><Homee/></AppNavbar>} />
+        <Route path='/about' element={<AppNavbar><About/></AppNavbar>} />
+        <Route path='/contact' element={<AppNavbar><Contact/></AppNavbar>} />
         <Route path='*' element={<PageNotFound/>}/>
-        <Route path='/home' element={<Homee/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/contact' element={<Contact/>} />
 
       </Routes>
     </div>
@@ -34,3 +37,4 @@ function App() {
 }
 
 export default App;
+ 
